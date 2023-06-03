@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        margin: 30px;
+        height: 50px;
+        width: 50px;
+        /* background-color: blue; */
+    }
+
+    .box.horizTranslate {
+        -webkit-transition: 3s;
+        -moz-transition: 3s;
+        -ms-transition: 3s;
+        -o-transition: 3s;
+        transition: 3s;
+        margin-left: 50% !important;
+    }
+</style>
+
+<body>
+
+    <div class='box'>
+        <img src="move.PNG" alt="">
+    </div>
+    <div></div>
+    <button class='toggleButton' value='play'>Play</button>
+
+
+</body>
+<script>
+    var boxOne = document.getElementsByClassName('box')[0],
+        $boxTwo = $('.box:eq(1)');
+
+    document.getElementsByClassName('toggleButton')[0].onclick = function () {
+        if (this.innerHTML === 'Play') {
+            this.innerHTML = 'Pause';
+            boxOne.classList.add('horizTranslate');
+        } else {
+            this.innerHTML = 'Play';
+            var computedStyle = window.getComputedStyle(boxOne),
+            marginLeft = computedStyle.getPropertyValue('margin-left');
+            boxOne.style.marginLeft = marginLeft;
+            boxOne.classList.remove('horizTranslate');
+        }
+    }
+
+
+</script>
+
+</html>

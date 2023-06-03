@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="num" type="text" name="" id="" required>
+    <button onclick="myFunction()">Get text in alphabatical order</button>
+</body>
+<script>
+    function myFunction() {
+        let text = document.getElementsByClassName("num")[0].value;
+        alert(alphaOrder(text))
+    }
+    function alphaOrder(str) {
+        var arr = str.split("");
+        arr.sort();
+        var sortedStr = arr.join("");
+        return sortedStr
+    }
+</script>
+
+</html>

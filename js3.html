@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form>div {
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <div style="display: flex; align-items: center;justify-content: center; flex-direction: column;" action="">
+
+        <div>
+            Name
+            <input class="name" type="text" name="" id="">
+            <p style="color: red;font-size: 10px;text-align: center;" id="name"></p>
+        </div>
+
+        <div>
+            Email
+            <input class="email" type="email" name="" id="">
+            <p style="color: red;font-size: 10px;text-align: center;" id="email"></p>
+        </div>
+
+        <div>
+            website
+            <input class="website" type="text">
+            <p style="color: red;font-size: 10px;text-align: center;" id="website"></p>
+        </div>
+        <div>
+            Message
+            <textarea class="text" name="" id="" cols="30" rows="10"></textarea>
+            <p style="color: red;font-size: 10px;text-align: center;" id="text"></p>
+        </div>
+
+        <button onclick="myfunction()">Submit</button>
+    </div>
+</body>
+<script>
+    function myfunction() {
+        let name = document.getElementsByClassName('name')[0].value
+        let email = document.getElementsByClassName('email')[0].value
+        let website = document.getElementsByClassName('website')[0].value
+        let text = document.getElementsByClassName('text')[0].value
+        if (name == '') {
+            document.getElementById('name').innerHTML = 'Name is required'
+        } else {
+            document.getElementById('name').innerHTML = ''
+        }
+        // if (email == '') {
+        //     document.getElementById('email').innerHTML = 'Email is required'
+        // } else {
+        //     document.getElementById('email').innerHTML = ''
+        // }
+        if (website == '') {
+            document.getElementById('website').innerHTML = 'This field is required'
+        } else {
+            document.getElementById('website').innerHTML = ''
+        }
+        if (text == '') {
+            document.getElementById('text').innerHTML = 'This field cannot be empty'
+        } else {
+            document.getElementById('text').innerHTML = ''
+        }
+
+
+        if (validateEmail(email) == true) {
+            document.getElementById('email').innerHTML = ''
+        } else {
+           
+            document.getElementById('email').innerHTML = 'Invalid email format'
+        }
+        if(ValidURL(website)){
+            document.getElementById('website').innerHTML = ''
+        }else{
+            
+            document.getElementById('website').innerHTML = 'Invalid format'
+        }
+    }
+    function validateEmail(email) {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
+function ValidURL(str) {
+  var regex = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+  if(!regex .test(str)) {
+   
+    return false;
+  } else {
+    return true;
+  }
+}
+</script>
+
+</html>
